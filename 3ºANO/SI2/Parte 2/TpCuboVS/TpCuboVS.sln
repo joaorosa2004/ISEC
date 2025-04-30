@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "TpCuboVS", "TpCuboVS\TpCuboVS.dwproj", "{C5AF3DB8-9B88-4EE2-BA36-F218CCB08963}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5AF3DB8-9B88-4EE2-BA36-F218CCB08963}.Development|Default.ActiveCfg = Development
+		{C5AF3DB8-9B88-4EE2-BA36-F218CCB08963}.Development|Default.Build.0 = Development
+		{C5AF3DB8-9B88-4EE2-BA36-F218CCB08963}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {940AFCC2-C6B6-4074-A313-1AC25CFABA01}
+	EndGlobalSection
+EndGlobal

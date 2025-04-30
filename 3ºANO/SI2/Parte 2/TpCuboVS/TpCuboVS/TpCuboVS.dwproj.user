@@ -1,0 +1,29 @@
+<AnalysisServicesUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>TP</Id>
+            <Name>TP</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9EYXYysLy0S+F45Um2oRhQAAAAAGAAAAVABQAAAAEGYAAAABAAAgAAAAXsiUP3vIPOC701FdqaH6Fs3c6sl7KL7VM17nJQ3gdt4AAAAADoAAAAACAAAgAAAAtp5YvlnFXee2ZWcMgTqb0ADeKJ1Qntvh9iLQz6pB/Q8QAAAAT66caW08suPNAXuvhJ5sV0AAAADfU3zxUqGFHpgxveID0RUrBwwEGbw1w6aAdfdo/qEd+LPDzrsObqZ33DXAPuzG1nSck7gR8OxeTbtrhL3U44DH</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>TP</Id>
+            <Name>TP</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9EYXYysLy0S+F45Um2oRhQAAAAAGAAAAVABQAAAAEGYAAAABAAAgAAAAmf9xIDnY9eL4V3B+JCtjj0M7tabtHMNcq7iKckrrmjwAAAAADoAAAAACAAAgAAAAHTeSGhmNL1y9OzTyIvDcJg5ReMvjSMsk57Ke4WJ9BtEQAAAAEfYlqJNavfvPYyFCc0zGIEAAAACn2mAPQFb4YylLnpfZ1loIBGqFbDo3MeXl6ysA6wfkKAiOXTE7h8NYjNr0GJhcHgXDVaA9pEQ4fw7D3caHYec+</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <TargetServer>localhost</TargetServer>
+        <TargetDatabase>TpCuboVS</TargetDatabase>
+        <StartObject>
+          <ObjectId></ObjectId>
+          <ObjectType>Current</ObjectType>
+        </StartObject>
+      </Options>
+    </Configuration>
+  </Configurations>
+</AnalysisServicesUserConfiguration>
