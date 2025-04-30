@@ -1,0 +1,178 @@
+/*GAME*/
+.Jogo {
+    text-align: center;
+    user-select: none;
+}
+.Jogo .wrapper {
+    padding: 2vmin;
+    margin-bottom: 2vmin;
+}
+
+/*SQUARE*/
+.Quadrado {
+    width: 4.5vmin;
+    height: 4.5vmin;
+    font-size: 5vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #eee;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+}
+.Quadrado.desabilitado:active {
+    background: #000000;
+    border: 1px inset #fff;
+}
+.Quadrado.emoji {
+    font-size: 3vmin;
+}
+.Quadrado.revelado, .Quadrado.mina {
+    background: #ffffff;
+    font-size: 3vmin;
+}
+.Quadrado.mina.clicado {
+    background-color: #a00;
+}
+.Quadrado.numero1 {
+    color: blue;
+    font-size: 3vmin;
+}
+.Quadrado.numero2 {
+    color: green;
+    font-size: 3vmin;
+}
+.Quadrado.numero3 {
+    color: red;
+    font-size: 3vmin;
+}
+.Quadrado.numero4 {
+    color: darkblue;
+    font-size: 3vmin;
+}
+.Quadrado.numero5 {
+    color: darkred;
+    font-size: 3vmin;
+}
+.Quadrado.numero6 {
+    color: teal;
+    font-size: 3vmin;
+}
+.Quadrado.numero7 {
+    color: #333;
+    font-size: 3vmin;
+}
+.Quadrado.numero8 {
+    color: deeppink;
+    font-size: 3vmin;
+}
+
+/*INDEX*/
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+#root {
+    flex: 1;
+}
+
+/*Tabuleiro*/
+.Tabuleiro {
+    display: inline-grid;
+    grid-gap: 0;
+    column-gap: 0;
+    margin: 0 auto;
+    overflow: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+.Tabuleiro.disabled {
+    pointer-events: none;
+}
+
+/*NÍVEL DIFICULDADE*/
+.nivel-dificuldade {
+    color: #333;
+    font-weight: bold;
+    font-size: 40px;
+    outline: none;
+    margin: 25px;
+}
+.nivel-dificuldade.selected {
+    background-color: #333;
+    color: #eee;
+    font-weight: bold;
+}
+
+/*ESTADO*/
+.estado {
+    display: inline-block;
+    margin: 0 auto;
+}
+.estado::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.minasFaltam {
+    display: inline-block;
+    margin: 0 4vmin;
+    font-family: 'Orbitron', monospace, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 5vmin;
+    width: 16vmin;
+    height: 8vmin;
+    line-height: 9vmin;
+}
+.cronometro {
+    display: inline-block;
+    margin: 0 4vmin;
+    font-family: 'Orbitron', monospace, sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 5vmin;
+    width: 16vmin;
+    height: 8vmin;
+    line-height: 9vmin;
+}
+.reiniciar {
+    text-align: center;
+    background: #fff;
+    font-size: 4vmin;
+    margin: 0 4vmin;
+    float: left;
+    min-width: 8vmin;
+    min-height: 8vmin;
+    line-height: 6vmin;
+}
