@@ -1,0 +1,11 @@
+Construa o modelo conceptual do diagrama Entidade/Relacionamento que descreve a situação descrita. Justifique
+
+A "Federação Portuguesa de Atletismo (FPA)" tem toda a sua informação um pouco desorganizada e pretende criar uma base de dados para gerir melhor a informação sobre os atletas, treinadores, clubes e associações distritais. Assim, é necessário guardar todos os dados sobre os clubes, bem como a associação distrital a que pertencem e os dados dos atletas e treinadores.
+
+Às Associações Distritais também lhes é atribuído um código alfanumérico, constituído por três numeros e uma letra (123A), gerados automaticamente pelo sistema e sem repetir códigos. Cada associação pode ter pistas de atletismo a seu cargo. 
+
+Quanto aos clubes, é obrigatório pertencer a uma associação e é lhe atribuido um código alfanumérico constituído por uma letra e três numeros (A123), gerados automaticamente pelo sistema e sem repetir códigos. Um clube só pode estar inscrito numa e única Associação distrital. O clube é responsável pela inscrição dos seus atletas nas provas. 
+
+Cada atleta terá de ser devidamente filiado para poder competir em provas distritais e nacionais, é atribuido um numero de filiação ao atleta, sendo este o que o identifica na FPA. O atleta tem de estar obrigatoriamente inscrito num e um só clube, sendo que fica automaticamente inscrito na associação respetiva. Os dados do atleta tem de ser guardados.
+
+A prova tem de ser realizada numa pista e organizada pela respetiva Associação Distrital. Após fechadas as inscrições, são criadas as startlists que posteriormente, dará origem aos resultados da prova.
