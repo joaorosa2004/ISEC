@@ -1,0 +1,26 @@
+----Análise da Eficiência de Reabastecimento----
+Identificar quais produtos são reabastecidos com maior frequência e se o stock está a ser bem gerido. 
+O objetivo é encontrar a relação entre a frequência dos reabastecimentos e as vendas dos produtos.
+
+-Calcular as vezes que o produto precisou de ser reabastecido
+-Total de vendas do produto
+-Média de vendas por reabastecimento
+-Calcular média de produtos abastecidos
+-Só mostra no output produtos com mais que x reabastecimentos.
+
+Se um produto está a ser reabastecido muitas vezes, mas as suas vendas são baixas, então pode estar a ser feita uma má gestão do stock.
+Se um produto tem muitas vendas mas poucos reabastecimentos, pode indicar ruturas de stock frequentes.
+
+----------------
+
+----Máquinas com Problemas / Impacto negativo nas Vendas----
+Ajuda a gestão da empresa a identificar se há impacto na venda de produtos devido a problemas nas máquinas.
+
+-Contar quantas vezes a maquina teve problemas nos últimos x dias
+-Somar o total de vendas nos último sx dias
+-Usar case para mostrar o impacto (Alto, medio, baixo,...) consoante o numero de erros registados no estado da maquina.
+-Selects encadeados para recolher dados de erros e vendas
+
+Se uma máquina teve muitos erros e uma queda nas vendas, isso indica que o problema pode estar a afetar os clientes e deve ser resolvido rapidamente.
+Se uma máquina teve muitos erros mas as vendas continuam altas, pode significar que os clientes continuam a usar a máquina mesmo com falhas 
+(exemplo: pequenos problemas que não impedem a venda)
