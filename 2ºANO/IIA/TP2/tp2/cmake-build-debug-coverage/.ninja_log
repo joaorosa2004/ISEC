@@ -1,0 +1,6 @@
+# ninja log v5
+37	186	7243698516193660	CMakeFiles/t2.dir/funcao.c.obj	9addff50b12e6c21
+0	189	7243698516183646	CMakeFiles/t2.dir/main.c.obj	553603f31cf8739b
+29	210	7243698516453658	CMakeFiles/t2.dir/algoritmo.c.obj	d87f026709b2771b
+18	217	7243698516523648	CMakeFiles/t2.dir/utils.c.obj	fde39bcb27698547
+218	445	7243698518726873	t2.exe	9acb5ce051b3e67e

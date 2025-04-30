@@ -1,0 +1,198 @@
+        -:    0:Source:C:/Users/reisd/OneDrive/Ambiente de Trabalho/ISEC/2�ano/iaa/tp2/colinas/funcao.c
+        -:    0:Graph:C:\Users\reisd\OneDrive\Ambiente de Trabalho\ISEC\2�ano\iaa\tp2\colinas\cmake-build-debug-coverage\CMakeFiles\t2.dir\funcao.c.gcno
+        -:    0:Data:C:\Users\reisd\OneDrive\Ambiente de Trabalho\ISEC\2�ano\iaa\tp2\colinas\cmake-build-debug-coverage\CMakeFiles\t2.dir\funcao.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by reisd on 11/12/2023.
+        -:    3://
+        -:    4:#include <stdio.h>
+        -:    5:#include "funcao.h"
+        -:    6:#include "utils.h"
+function calcula_fit called 0 returned 0% blocks executed 0%
+    #####:    7:int calcula_fit(int a[], int *mat, int vert) {
+    #####:    8:    int total = 0;
+        -:    9:    // Array de conexões
+    #####:   10:    int con[vert];
+    #####:   11:    for (int i = 0; i < vert; i++) {
+    %%%%%:   11-block  0
+    %%%%%:   11-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   12:        con[i] = 0;
+    %%%%%:   12-block  0
+        -:   13:    }
+        -:   14:
+        -:   15:    // Loop por toda a matriz para verificar se é válida
+    #####:   16:    for (int i = 0; i < vert; i++) {
+    %%%%%:   16-block  0
+    %%%%%:   16-block  1
+    %%%%%:   16-block  2
+branch  0 never executed
+branch  1 never executed
+        -:   17:        // Verifica se a linha pertence à solução
+    #####:   18:        if (a[i] == 1) {
+    %%%%%:   18-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   19:            for (int j = 0; j < vert; j++) {
+    %%%%%:   19-block  0
+    %%%%%:   19-block  1
+    %%%%%:   19-block  2
+branch  0 never executed
+branch  1 never executed
+        -:   20:                // Verifica se há uma conexão entre os vértices i e j
+        -:   21:
+    #####:   22:                if (a[j] == 1 && *(mat+i*vert+j) != 0) {
+    %%%%%:   22-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   22-block  1
+branch  2 never executed
+branch  3 never executed
+    #####:   23:                    con[i] = 1;
+    #####:   24:                    con[j] = 1;
+        -:   25:                    // Adiciona o custo
+        -:   26:                   // printf("%d",*(mat + i * vert + j));
+    #####:   27:                    total += *(mat + i * vert + j);
+    %%%%%:   27-block  0
+        -:   28:                }
+        -:   29:
+        -:   30:            }
+        -:   31:        }
+        -:   32:    }
+        -:   33:
+        -:   34:    // Verifica se a solução é válida
+    #####:   35:    for (int i = 0; i < vert; i++) {
+    %%%%%:   35-block  0
+    %%%%%:   35-block  1
+    %%%%%:   35-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   36:        if (con[i] == 0 && a[i] == 1) {
+    %%%%%:   36-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   36-block  1
+branch  2 never executed
+branch  3 never executed
+        -:   37:            // Solução inválida
+    #####:   38:            return 5000;
+    %%%%%:   38-block  0
+        -:   39:        }
+        -:   40:    }
+        -:   41:
+        -:   42:    // Retorna o custo total
+    #####:   43:    return total/2;
+    %%%%%:   43-block  0
+        -:   44:}
+        -:   45:
+function avaliaIndividual_2 called 0 returned 0% blocks executed 0%
+    #####:   46:int avaliaIndividual_2(int solucao[], struct info *d, int *grafo,int *valido) {
+    #####:   47:    int total = 0,contador=0;
+        -:   48:    // Array de conexões
+    #####:   49:    int con[d->v];
+    #####:   50:    for (int i = 0; i < d->v; i++) {
+    %%%%%:   50-block  0
+    %%%%%:   50-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   51:        con[i] = 0;
+    %%%%%:   51-block  0
+        -:   52:    }
+        -:   53:
+    #####:   54:    for(int y=0;y<d->v;y++)
+    %%%%%:   54-block  0
+    %%%%%:   54-block  1
+    %%%%%:   54-block  2
+branch  0 never executed
+branch  1 never executed
+        -:   55:    {
+    #####:   56:        if(solucao[y]==1)
+    %%%%%:   56-block  0
+branch  0 never executed
+branch  1 never executed
+        -:   57:        {
+    #####:   58:            contador++;
+    %%%%%:   58-block  0
+        -:   59:        }
+        -:   60:    }
+    #####:   61:    if(contador!=4)
+    %%%%%:   61-block  0
+branch  0 never executed
+branch  1 never executed
+        -:   62:    {
+    #####:   63:        *valido=1;
+    %%%%%:   63-block  0
+        -:   64:    }
+        -:   65:    else
+        -:   66:    {
+    #####:   67:        *valido=0;
+    %%%%%:   67-block  0
+        -:   68:    }
+        -:   69:    // Loop por toda a matriz para verificar se é válida
+    #####:   70:    for (int i = 0; i < d->v; i++) {
+    %%%%%:   70-block  0
+    %%%%%:   70-block  1
+    %%%%%:   70-block  2
+branch  0 never executed
+branch  1 never executed
+        -:   71:        // Verifica se a linha pertence à solução
+        -:   72:
+    #####:   73:        if (solucao[i] == 1) {
+    %%%%%:   73-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   74:            for (int j = 0; j < d->v; j++) {
+    %%%%%:   74-block  0
+    %%%%%:   74-block  1
+    %%%%%:   74-block  2
+branch  0 never executed
+branch  1 never executed
+        -:   75:                // Verifica se há uma conexão entre os vértices i e j
+        -:   76:                //printf("aqui");
+    #####:   77:                if (solucao[j] == 1 && *(grafo + i * d->v + j) != 0) {
+    %%%%%:   77-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   77-block  1
+branch  2 never executed
+branch  3 never executed
+    #####:   78:                    con[i] = 1;
+    #####:   79:                    con[j] = 1;
+        -:   80:                    // Adiciona o custo
+        -:   81:
+    #####:   82:                    total += *(grafo + i * d->v + j);
+    %%%%%:   82-block  0
+        -:   83:                }
+        -:   84:
+        -:   85:            }
+        -:   86:        }
+        -:   87:    }
+        -:   88:
+        -:   89:    // Verifica se a solução é válida
+    #####:   90:    for (int i = 0; i < d->v; i++) {
+    %%%%%:   90-block  0
+    %%%%%:   90-block  1
+    %%%%%:   90-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   91:        if ((con[i] == 0 && solucao[i] == 1)||*valido==1) {
+    %%%%%:   91-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   91-block  1
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   91-block  2
+branch  4 never executed
+branch  5 never executed
+        -:   92:            // Solução inválida
+    #####:   93:            return 5000;
+    %%%%%:   93-block  0
+        -:   94:        }
+        -:   95:    }
+        -:   96:    //printf("%d",total);
+    #####:   97:    return total/2;
+    %%%%%:   97-block  0
+        -:   98:}

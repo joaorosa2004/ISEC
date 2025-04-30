@@ -1,0 +1,301 @@
+        -:    0:Source:C:/Users/reisd/OneDrive/Ambiente de Trabalho/ISEC/2ºano/iaa/tp2/colinas/main.c
+        -:    0:Graph:C:\Users\reisd\OneDrive\Ambiente de Trabalho\ISEC\2ºano\iaa\tp2\colinas\cmake-build-debug-coverage\CMakeFiles\t2.dir\main.c.gcno
+        -:    0:Data:C:\Users\reisd\OneDrive\Ambiente de Trabalho\ISEC\2ºano\iaa\tp2\colinas\cmake-build-debug-coverage\CMakeFiles\t2.dir\main.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include "utils.h"
+        -:    5:#include "algoritmo.h"
+        -:    6:#define tam 50
+        -:    7:#define DEFAULT_GEN 10
+        -:    8:#define DEFAULT_RUNS 50
+function main called 1 returned 0% blocks executed 8%
+        1:    9:int main() {
+        -:   10:
+        -:   11:    char nfile[tam];
+        -:   12:    int i,vert,runs,ar,k,custo,best_custo,num_iter,escolha;
+        -:   13:    int g_atual;
+        1:   14:    pchrom pop= NULL;
+        1:   15:    pchrom pais=NULL;
+        -:   16:    chrom best_pop, best_pop_final;
+        -:   17:
+        -:   18:    int     *grafo, *sol, *best,p;
+        -:   19:    struct info AE_param;
+        1:   20:    double   mbf = 0.0;
+        1:   21:    runs=DEFAULT_RUNS;
+        1:   22:    printf("Introduza nome do ficheiro:");
+        1:   22-block  0
+call    0 returned 1
+        1:   23:    gets(nfile);
+call    0 returned 1
+        -:   24:
+        1:   25:    if(runs <= 0)
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   26:        return 0;
+    %%%%%:   26-block  0
+        1:   27:    init_rand();
+        1:   27-block  0
+call    0 returned 1
+        -:   28:    // Preenche matriz de adjacencias
+        1:   29:    grafo = init_dados(nfile, &vert, &ar,&k);
+call    0 returned 0
+        -:   30:
+        -:   31:
+    #####:   32:    if(vert>500)
+branch  0 never executed
+branch  1 never executed
+        -:   33:    {
+    #####:   34:        printf("Vertices acima do aguentado\n");
+    %%%%%:   34-block  0
+call    0 never executed
+    #####:   35:        return 0;
+        -:   36:    }
+        -:   37:
+    #####:   38:        printf("1-Colina\n2-Evolutivo\n3-Misto\n");
+    %%%%%:   38-block  0
+call    0 never executed
+        -:   39:    do {
+    #####:   40:        scanf("%d", &escolha);
+    %%%%%:   40-block  0
+call    0 never executed
+    #####:   41:    }while(escolha>3||escolha<1);
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   41-block  0
+branch  2 never executed
+branch  3 never executed
+        -:   42:
+    #####:   43:    if(escolha==1) {
+    %%%%%:   43-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   44:        sol = malloc(sizeof(int) * vert);
+    #####:   45:        best = malloc(sizeof(int) * vert);
+        -:   46:
+    #####:   47:        if (sol == NULL || best == NULL) {
+    %%%%%:   47-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   47-block  1
+branch  2 never executed
+branch  3 never executed
+    #####:   48:            printf("Erro na alocacao de memoria");
+    %%%%%:   48-block  0
+call    0 never executed
+    #####:   49:            exit(1);
+call    0 never executed
+        -:   50:        }
+    #####:   51:        for (i = 0; i < runs; i++) {
+    %%%%%:   51-block  0
+    %%%%%:   51-block  1
+    %%%%%:   51-block  2
+branch  0 never executed
+branch  1 never executed
+        -:   52:            // Gerar solucao inicial
+    #####:   53:            gera_sol_inicial(sol, vert, k);
+    %%%%%:   53-block  0
+call    0 never executed
+    #####:   54:            puts("\n");
+call    0 never executed
+        -:   55:
+    #####:   56:            printf("\nSolucao inicial %d:", i);
+call    0 never executed
+    #####:   57:            escreve_sol(sol, vert);
+call    0 never executed
+        -:   58:            // Trepa colinas
+        -:   59:
+    #####:   60:            custo = trepa_colinas(sol, grafo, vert, 10000);
+call    0 never executed
+    #####:   61:            printf("Custo final: %2d\n", custo);
+call    0 never executed
+    #####:   62:            mbf += custo;
+    #####:   63:            if (i == 0 || best_custo > custo) {
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   63-block  0
+branch  2 never executed
+branch  3 never executed
+    #####:   64:                best_custo = custo;
+    #####:   65:                substitui(best, sol, vert);
+    %%%%%:   65-block  0
+call    0 never executed
+        -:   66:            }
+        -:   67:        }
+        -:   68:        // Escreve eresultados globais
+    #####:   69:        printf("\n\nMBF: %.2f\n", (float) mbf / i);
+    %%%%%:   69-block  0
+call    0 never executed
+    #####:   70:        printf("\nMelhor solucao encontrada");
+call    0 never executed
+    #####:   71:        escreve_sol(best, vert);
+call    0 never executed
+    #####:   72:        printf("Custo final: %2d\n", best_custo);
+call    0 never executed
+    #####:   73:        free(grafo);
+    #####:   74:        free(sol);
+    #####:   75:        free(best);
+    #####:   76:        return 0;
+        -:   77:    }
+    #####:   78:    else if(escolha==2)
+    %%%%%:   78-block  0
+branch  0 never executed
+branch  1 never executed
+        -:   79:    {
+        -:   80:        int escolha_selecao;
+    #####:   81:        printf("1-Selecao por torneio\n2-Selecao proporcional\n");
+    %%%%%:   81-block  0
+call    0 never executed
+        -:   82:        do {
+    #####:   83:            scanf("%d", &escolha_selecao);
+    %%%%%:   83-block  0
+call    0 never executed
+    #####:   84:        } while (escolha_selecao<1||escolha_selecao>2);
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   84-block  0
+branch  2 never executed
+branch  3 never executed
+    #####:   85:        AE_param = leAE(nfile);
+    %%%%%:   85-block  0
+call    0 never executed
+    #####:   86:        for (i = 0; i < runs; i++) {
+    %%%%%:   86-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   87:            printf("\nSolucao inicial %d:\n", i);
+    %%%%%:   87-block  0
+call    0 never executed
+    #####:   88:            pop = initPop(&AE_param);
+call    0 never executed
+        -:   89:
+        -:   90:            // for(int j=0;j<vert;j++)
+        -:   91:            //printf("%d ",pop->p[j]);
+        -:   92:
+    #####:   93:            verificaGeral_2(pop,&AE_param,grafo);
+call    0 never executed
+        -:   94:
+    #####:   95:            g_atual=1;
+        -:   96:
+    #####:   97:            best_pop = pop[0];
+        -:   98:
+    #####:   99:            best_pop = getMelhor(pop,&AE_param,best_pop);
+call    0 never executed
+        -:  100:
+        -:  101:
+    #####:  102:            pais = malloc(sizeof(chrom) * AE_param.popsize);
+    #####:  103:            if (pais == NULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:  104:                printf("Erro na alocacao de memoria\n");
+    %%%%%:  104-block  0
+call    0 never executed
+    #####:  105:                exit(1);
+call    0 never executed
+        -:  106:            }
+        -:  107:
+    #####:  108:            while (g_atual <= AE_param.numGeracoes) {
+    %%%%%:  108-block  0
+    %%%%%:  108-block  1
+branch  0 never executed
+branch  1 never executed
+        -:  109:                //torneio binario
+    #####:  110:               if(escolha_selecao==1) {
+    %%%%%:  110-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  111:                   torneioSelecao(pop, &AE_param, pais);
+    %%%%%:  111-block  0
+call    0 never executed
+        -:  112:
+        -:  113:                   //aplicar os operadores geneticos
+        -:  114:
+        -:  115:                   //crossover
+    #####:  116:                   recombinacao(pais, &AE_param, pop);
+call    0 never executed
+        -:  117:
+        -:  118:                   //mutacao
+    #####:  119:                   mutacao(pop, &AE_param);
+call    0 never executed
+        -:  120:               }
+    #####:  121:               if(escolha_selecao==2)
+    %%%%%:  121-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  122:               {
+    #####:  123:                   selecaoProporcional(pop, &AE_param, pais);
+    %%%%%:  123-block  0
+call    0 never executed
+        -:  124:
+    #####:  125:                   recombinaUniforme(pais, &AE_param, pop);
+call    0 never executed
+        -:  126:
+    #####:  127:                   inversaoMutacao(pop, &AE_param);
+call    0 never executed
+        -:  128:               }
+        -:  129:
+        -:  130:                //avalia a nova pop
+    #####:  131:                 verificaGeral_2(pop,&AE_param,grafo);
+    %%%%%:  131-block  0
+call    0 never executed
+        -:  132:
+        -:  133:                //atualizar a melhor solucao encontrada
+    #####:  134:                best_pop = getMelhor(pop, &AE_param, best_pop);
+call    0 never executed
+        -:  135:
+        -:  136:
+        -:  137:                //incrementamos a geracao atual
+    #####:  138:                g_atual++;
+        -:  139:
+        -:  140:            }
+    #####:  141:            free(pais);
+    #####:  142:            printf("\nNa repeticao %d a melhor solucao foi: ", i);
+    %%%%%:  142-block  0
+call    0 never executed
+    #####:  143:            mostraPop(&best_pop, &AE_param);
+call    0 never executed
+        -:  144:
+    #####:  145:            mbf += best_pop.fitness;
+        -:  146:
+    #####:  147:            if(i == 0 || best_pop.fitness > best_pop_final.fitness)
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  147-block  0
+branch  2 never executed
+branch  3 never executed
+    #####:  148:                best_pop_final = best_pop;
+    %%%%%:  148-block  0
+        -:  149:
+        -:  150:
+    #####:  151:            free(pop);
+    %%%%%:  151-block  0
+        -:  152:        }
+    #####:  153:        printf("\n\nMBF: %f\n", mbf/i);
+    %%%%%:  153-block  0
+call    0 never executed
+    #####:  154:        printf("\nMelhor solucao encontrada");
+call    0 never executed
+    #####:  155:        mostraPop(&best_pop_final,&AE_param);
+call    0 never executed
+        -:  156:
+        -:  157:
+    #####:  158:        return 0;
+        -:  159:    }
+    #####:  160:    else if(escolha==3)
+    %%%%%:  160-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  161:    {
+        -:  162:
+    #####:  163:        return 0;
+    %%%%%:  163-block  0
+        -:  164:    }
+        -:  165:
+    #####:  166:    return 0;
+    %%%%%:  166-block  0
+        -:  167:}
+        -:  168:
+        -:  169:
+        -:  170:

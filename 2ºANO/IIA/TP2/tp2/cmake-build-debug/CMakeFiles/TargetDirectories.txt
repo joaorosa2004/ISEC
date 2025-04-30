@@ -1,0 +1,3 @@
+C:/Users/reisd/OneDrive/Ambiente de Trabalho/ISEC/2ºano/iaa/tp2/colinas/cmake-build-debug/CMakeFiles/t2.dir
+C:/Users/reisd/OneDrive/Ambiente de Trabalho/ISEC/2ºano/iaa/tp2/colinas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/reisd/OneDrive/Ambiente de Trabalho/ISEC/2ºano/iaa/tp2/colinas/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,345 @@
+        -:    0:Source:C:/Users/reisd/OneDrive/Ambiente de Trabalho/ISEC/2ºano/iaa/tp2/colinas/utils.c
+        -:    0:Graph:C:\Users\reisd\OneDrive\Ambiente de Trabalho\ISEC\2ºano\iaa\tp2\colinas\cmake-build-debug-coverage\CMakeFiles\t2.dir\utils.c.gcno
+        -:    0:Data:C:\Users\reisd\OneDrive\Ambiente de Trabalho\ISEC\2ºano\iaa\tp2\colinas\cmake-build-debug-coverage\CMakeFiles\t2.dir\utils.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://
+        -:    2:// Created by reisd on 11/12/2023.
+        -:    3://
+        -:    4:#include <stdio.h>
+        -:    5:#include <stdlib.h>
+        -:    6:#include <string.h>
+        -:    7:#include <time.h>
+        -:    8:#include "utils.h"
+        -:    9:#include "algoritmo.h"
+        -:   10:#include "funcao.h"
+        -:   11:
+function init_dados called 1 returned 0% blocks executed 23%
+        1:   12:int* init_dados(char *nome, int *v, int *ar ,int *k)
+        -:   13:{
+        -:   14:    FILE *f;
+        -:   15:    int *p, *q;
+        -:   16:    int i, j,v1,v2,valor;
+        -:   17:
+        1:   18:    f=fopen(nome, "r");
+        1:   18-block  0
+call    0 returned 1
+        1:   19:    if(!f)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        -:   20:    {
+        1:   21:        printf("Erro no acesso ao ficheiro dos dados\n");
+        1:   21-block  0
+call    0 returned 1
+        1:   22:        exit(1);
+call    0 returned 0
+        -:   23:    }
+        -:   24:    // Numero de iteracoes
+    #####:   25:    fscanf(f, "k %d", k);
+    %%%%%:   25-block  0
+call    0 never executed
+        -:   26:    // Numero de vertices
+    #####:   27:    fscanf(f, "\np edge %d %d", v,ar);
+call    0 never executed
+        -:   28:    // Alocacao dinamica da matriz
+    #####:   29:    p =  malloc(sizeof(int) * (*v) * (*v));
+    #####:   30:    if(!p)
+branch  0 never executed
+branch  1 never executed
+        -:   31:    {
+    #####:   32:        printf("Erro na alocacao de memoria\n");
+    %%%%%:   32-block  0
+call    0 never executed
+    #####:   33:        exit(1);
+call    0 never executed
+        -:   34:    }
+        -:   35:
+        -:   36:    // Preenchimento da matriz
+    #####:   37:    for(i=0; i<*v; i++)
+    %%%%%:   37-block  0
+    %%%%%:   37-block  1
+    %%%%%:   37-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   38:        for(j=0; j<*v; j++)
+    %%%%%:   38-block  0
+    %%%%%:   38-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   39:            p[i*(*v)+j]=0;
+    %%%%%:   39-block  0
+        -:   40:
+    #####:   41:    while(fscanf(f,"\ne %d %d %d",&v1,&v2,&valor)==3){
+    %%%%%:   41-block  0
+    %%%%%:   41-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   42:        p[(v1-1)*(*v)+(v2-1)]=valor;
+    #####:   43:        p[(v2-1)*(*v)+(v1-1)]=valor;
+    %%%%%:   43-block  0
+        -:   44:    }
+    #####:   45:    fclose(f);
+    %%%%%:   45-block  0
+call    0 never executed
+    #####:   46:    return p;
+        -:   47:}
+        -:   48:
+function gera_sol_inicial called 0 returned 0% blocks executed 0%
+    #####:   49:void gera_sol_inicial(int *sol, int v,int k)
+        -:   50:{
+        -:   51:    int i,x;
+    #####:   52:    for(i=0;i<v;i++)
+    %%%%%:   52-block  0
+    %%%%%:   52-block  1
+branch  0 never executed
+branch  1 never executed
+        -:   53:    {
+    #####:   54:        sol[i]=0;
+    %%%%%:   54-block  0
+        -:   55:    }
+    #####:   56:    for(i=0;i<k;i++)
+    %%%%%:   56-block  0
+    %%%%%:   56-block  1
+branch  0 never executed
+branch  1 never executed
+        -:   57:    {
+        -:   58:        do{
+    #####:   59:            x= random_l_h(0,v-1);
+    %%%%%:   59-block  0
+call    0 never executed
+    #####:   60:        }while(sol[x]!=0);
+branch  0 never executed
+branch  1 never executed
+    #####:   61:    sol[x]=1;
+    %%%%%:   61-block  0
+        -:   62:
+        -:   63:
+        -:   64:    }
+    #####:   65:}
+        -:   66:
+function leAE called 0 returned 0% blocks executed 0%
+    #####:   67:struct info leAE(char *nome_fich ){
+        -:   68:    struct info temp;
+        -:   69:    int v1,v2,valor,*p;
+        -:   70:    FILE *f;
+        -:   71:
+    #####:   72:    f = fopen(nome_fich, "r");
+    %%%%%:   72-block  0
+call    0 never executed
+    #####:   73:    if(!f){
+branch  0 never executed
+branch  1 never executed
+    #####:   74:        printf("Erro ao abrir o ficheiro\n");
+    %%%%%:   74-block  0
+call    0 never executed
+    #####:   75:        exit(1);
+call    0 never executed
+        -:   76:    }
+        -:   77:
+    #####:   78:    fscanf(f, "k %d", &temp.k);
+    %%%%%:   78-block  0
+call    0 never executed
+        -:   79:    // Numero de vertices
+    #####:   80:    fscanf(f, "\np edge %d %d", &temp.v,&temp.ar);
+call    0 never executed
+    #####:   81:    p = malloc(sizeof(int)*(temp.v)*(temp.v));
+    #####:   82:    while(fscanf(f,"\ne %d %d %d",&v1,&v2,&valor)==3){
+    %%%%%:   82-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   83:       p[(v1-1)*(temp.v)+(v2-1)]=valor;
+    #####:   84:       p[(v2-1)*(temp.v)+(v1-1)]=valor;
+    %%%%%:   84-block  0
+        -:   85:    }
+        -:   86:
+    #####:   87:    fclose(f);
+    %%%%%:   87-block  0
+call    0 never executed
+    #####:   88:    temp.pm = 0.0;
+    #####:   89:    temp.pr = 0.3;
+    #####:   90:    temp.tsize = 2;
+        -:   91:
+    #####:   92:    temp.popsize = 100;
+    #####:   93:    temp.numGeracoes = 25;
+        -:   94:
+        -:   95:    // printf("\nTamanho da populacao: ");scanf("%d",&temp.popsize);
+        -:   96:    // printf("Tamanho do torneio: ");scanf("%d", &temp.tsize);
+        -:   97:    //printf("Numero de geracoes: ");scanf("%d", &temp.numGeracoes);
+    #####:   98:    printf("\n");
+call    0 never executed
+    #####:   99:    return temp;
+        -:  100:}
+        -:  101:
+        -:  102:
+        -:  103:
+function initPop called 0 returned 0% blocks executed 0%
+    #####:  104:pchrom initPop(struct info *d) {
+        -:  105:    pchrom pop;
+    #####:  106:    pop = malloc(sizeof(chrom) * d->popsize);
+        -:  107:
+    #####:  108:    for (int j = 0; j < d->popsize; j++) {
+    %%%%%:  108-block  0
+    %%%%%:  108-block  1
+    %%%%%:  108-block  2
+branch  0 never executed
+branch  1 never executed
+        -:  109:
+    #####:  110:        int aux[d->v];
+    #####:  111:        for (int i = 0; i < d->v; i++)
+    %%%%%:  111-block  0
+    %%%%%:  111-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  112:            aux[i] = 0;
+    %%%%%:  112-block  0
+        -:  113:
+        -:  114:
+    #####:  115:        for (int i = 0; i < d->k; i++) {
+    %%%%%:  115-block  0
+    %%%%%:  115-block  1
+branch  0 never executed
+branch  1 never executed
+        -:  116:            int x;
+        -:  117:            do {
+    #####:  118:                x = random_l_h(0, d->v - 1);
+    %%%%%:  118-block  0
+call    0 never executed
+    #####:  119:            } while (aux[x] != 0);
+branch  0 never executed
+branch  1 never executed
+    #####:  120:            aux[x] = 1;
+        -:  121:
+    #####:  122:            pop[j].p[x] = aux[x];
+    %%%%%:  122-block  0
+        -:  123:
+        -:  124:        }
+        -:  125:
+        -:  126:    }
+    #####:  127:    return pop;
+    %%%%%:  127-block  0
+        -:  128:}
+        -:  129:
+function mostraPop called 0 returned 0% blocks executed 0%
+    #####:  130:void mostraPop(chrom *x, struct info *d){
+        -:  131:
+    #####:  132:    printf("\n[");
+    %%%%%:  132-block  0
+call    0 never executed
+    #####:  133:    for(int j = 0; j < d->v; j++){
+    %%%%%:  133-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  134:        printf("%d ", x->p[j]);
+    %%%%%:  134-block  0
+call    0 never executed
+        -:  135:    }
+    #####:  136:    printf("]\n");
+    %%%%%:  136-block  0
+call    0 never executed
+    #####:  137:    printf("Fitness:%d\n",x->fitness);
+call    0 never executed
+    #####:  138:}
+function getMelhor called 0 returned 0% blocks executed 0%
+    #####:  139:chrom getMelhor(pchrom pop, struct info *d, chrom best){
+        -:  140:
+    #####:  141:    for(int i = 0; i < d->popsize; i++){
+    %%%%%:  141-block  0
+    %%%%%:  141-block  1
+    %%%%%:  141-block  2
+branch  0 never executed
+branch  1 never executed
+        -:  142:
+    #####:  143:        if(best.fitness > pop[i].fitness)
+    %%%%%:  143-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  144:            best = pop[i];
+    %%%%%:  144-block  0
+        -:  145:    }
+        -:  146:
+    #####:  147:    return best;
+    %%%%%:  147-block  0
+        -:  148:}
+        -:  149:
+        -:  150:
+        -:  151:// Escreve solucao
+        -:  152:// Parametros: solucao e numero de vertices
+function escreve_sol called 0 returned 0% blocks executed 0%
+    #####:  153:void escreve_sol(int *sol, int vert)
+        -:  154:{
+        -:  155:    int i;
+        -:  156:
+    #####:  157:    printf("\nSolucao: ");
+    %%%%%:  157-block  0
+call    0 never executed
+    #####:  158:    for(i=0; i<vert; i++)
+    %%%%%:  158-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  159:
+    #####:  160:            printf("%d ", sol[i]);
+    %%%%%:  160-block  0
+call    0 never executed
+    #####:  161:    printf("\n");
+    %%%%%:  161-block  0
+call    0 never executed
+    #####:  162:}
+        -:  163:
+function verificaGeral_2 called 0 returned 0% blocks executed 0%
+    #####:  164:void verificaGeral_2(pchrom pop, struct info *d,int *grafo){
+        -:  165:    int i;
+    #####:  166:    for(i = 0; i < d->popsize; i++){
+    %%%%%:  166-block  0
+    %%%%%:  166-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  167:        pop[i].fitness = avaliaIndividual_2(pop[i].p, d,grafo,&pop[i].validez);
+    %%%%%:  167-block  0
+call    0 never executed
+        -:  168:    }
+        -:  169:
+    #####:  170:}
+        -:  171:
+        -:  172:// copia vector b para a (tamanho n)
+function substitui called 0 returned 0% blocks executed 0%
+    #####:  173:void substitui(int a[], int b[], int n)
+        -:  174:{
+        -:  175:    int i;
+    #####:  176:    for(i=0; i<n; i++)
+    %%%%%:  176-block  0
+    %%%%%:  176-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  177:        a[i]=b[i];
+    %%%%%:  177-block  0
+    #####:  178:}
+        -:  179:
+        -:  180:// Inicializa o gerador de numeros aleatorios
+function init_rand called 1 returned 100% blocks executed 100%
+        1:  181:void init_rand()
+        -:  182:{
+        1:  183:    srand((unsigned)time(NULL));
+        1:  183-block  0
+call    0 returned 1
+call    1 returned 1
+        1:  184:}
+        -:  185:
+        -:  186:// Devolve valor inteiro aleatorio entre min e max
+function random_l_h called 0 returned 0% blocks executed 0%
+    #####:  187:int random_l_h(int min, int max)
+        -:  188:{
+    #####:  189:    return min + rand() % (max-min+1);
+    %%%%%:  189-block  0
+call    0 never executed
+        -:  190:}
+        -:  191:
+        -:  192:// Devolve um valor real aleatorio do intervalo [0, 1]
+function rand_01 called 0 returned 0% blocks executed 0%
+    #####:  193:float rand_01()
+        -:  194:{
+    #####:  195:    return ((float)rand())/RAND_MAX;
+    %%%%%:  195-block  0
+call    0 never executed
+        -:  196:}
