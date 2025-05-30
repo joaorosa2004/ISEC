@@ -1,0 +1,21 @@
+<!ELEMENT paises (paisDados+)>
+
+<!ELEMENT paisDados (pais, capital, bandeira, linguas, area, populacao, densidade, chefe_estado, religioes, cidades_importantes, fronteiras, casos_covid)>
+<!ATTLIST paisDados nome CDATA #REQUIRED>
+
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT capital (#PCDATA)>
+<!ELEMENT bandeira (#PCDATA)>
+<!ELEMENT linguas (lingua+)>
+<!ELEMENT lingua (#PCDATA)>
+<!ELEMENT area (#PCDATA)>
+<!ELEMENT populacao (#PCDATA)>
+<!ELEMENT densidade (#PCDATA)>
+<!ELEMENT chefe_estado (#PCDATA)>
+<!ELEMENT religioes (religiao*)>
+<!ELEMENT religiao (#PCDATA)>
+<!ELEMENT cidades_importantes (cidade*)>
+<!ELEMENT cidade (#PCDATA)>
+<!ELEMENT fronteiras (pais_fronteira*)>
+<!ELEMENT pais_fronteira (#PCDATA)>
+<!ELEMENT casos_covid (#PCDATA)>
